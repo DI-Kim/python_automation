@@ -1,39 +1,23 @@
-# list
+# dictionaries
 
-# flexible list
-spam = [10, 20, 30]
-print(spam[1:3])
-spam[1:3] = [40, 50, 60]
-print(spam)
+import pprint  # pretty print
 
-#list methods
-spam = [1, 2, 3, 4]
-print(spam.index(2))  # returns 1
+myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
+print(myCat['size'])  # fat
+print('size' in myCat)  # True
+print(list(myCat.keys()))  # ['size', 'color', 'disposition']
+print(list(myCat.values()))  # ['fat', 'gray', 'loud']
+print(list(myCat.items()))
+# [('size', 'fat'), ('color', 'gray'), ('disposition', 'loud')]
 
-spam.append(5)
-print(spam)  # returns [1, 2, 3, 4, 5]
+for k, v in myCat.items():
+    print(k, v)  # size fat color gray disposition loud
 
-spam.insert(0, 0)
-print(spam)  # returns [0, 1, 2, 3, 4, 5]
 
-spam.remove(5) # removes the first occurrence of 5 (not index 5 )
-print(spam)  # returns [0, 1, 2, 3, 4]
-
-del spam[0] # deletes the first element (index 0)
-print(spam)  # returns [1, 2, 3, 4]
-
-spam = [2, 5, 3, 14, -8, 0]
-spam.sort() # sorts the list in ascending order
-print(spam)  # returns [-8, 0, 2, 3, 5, 14]
-
-spam.sort(reverse=True) # sorts the list in descending order
-print(spam)  # returns [14, 5, 3, 2, 0, -8]
-
-# The list is passed by reference, so the original list is modified.
-def eggs(cheese:list):
-    cheese.append('hello')
-
-spam = [1, 2, 3]
-eggs(spam)
-print(spam)  # returns [1, 2, 3, 'hello']
-
+# character count
+message = 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+count = {}
+for character in message.upper():
+    count.setdefault(character, 0)
+    count[character] += 1
+pprint.pprint(count)

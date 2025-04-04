@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "editor.formatOnSave": true
+}

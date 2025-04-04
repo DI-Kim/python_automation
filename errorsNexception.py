@@ -5,7 +5,7 @@ def div21by(divisor):
     except:
         print("Error: Division by zero is not allowed")
         return None
-    
+
 
 def div42by(divisor):
     try:
@@ -15,5 +15,6 @@ def div42by(divisor):
         return None
     finally:
         print("Execution completed")
+
 
 div42by(0)
