@@ -1,23 +1,42 @@
-# dictionaries
+# more about strings
 
-import pprint  # pretty print
+import pyperclip
 
-myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
-print(myCat['size'])  # fat
-print('size' in myCat)  # True
-print(list(myCat.keys()))  # ['size', 'color', 'disposition']
-print(list(myCat.values()))  # ['fat', 'gray', 'loud']
-print(list(myCat.items()))
-# [('size', 'fat'), ('color', 'gray'), ('disposition', 'loud')]
+"""
+\' single quote
+\" double quote
+\t tab
+\n new line
+\\ backslash
+"""
 
-for k, v in myCat.items():
-    print(k, v)  # size fat color gray disposition loud
+"That's a string"
+'That\'s a string'
+'He said "Hello"'
 
+spam = 'Hello, world!'
+print(spam[0])  # 'H'
+print(spam[0:5])  # 'Hello'
+print(spam[-1])  # '!' (last character)
+print('x' in spam)  # True if x is in spam
+print('HELLO' in spam)  # False (case-sensitive)
+print('HELLO' in spam.upper())  # True (upper() converts to uppercase)
+print('hello' in spam.lower())  # True (lower() converts to lowercase)
+print(spam.startswith('Hello'))  # True (starts with 'Hello')
+print(spam.endswith('world!'))  # True (ends with 'world!')
 
-# character count
-message = 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-count = {}
-for character in message.upper():
-    count.setdefault(character, 0)
-    count[character] += 1
-pprint.pprint(count)
+print(','.join(['a', 'b', 'c']))  # 'a,b,c' (joins list with comma)
+print('a,b,c'.split(','))  # ['a', 'b', 'c'] (splits string by comma)
+print('My name is Simon'.split())
+# ['My', 'name', 'is', 'Simon'] (splits by whitespace)
+print('       x       '.strip())  # 'x' (whitespace to remove)
+
+pyperclip.copy('Hello, world!')  # Copy to clipboard
+print(pyperclip.paste())  # Paste from clipboard
+
+# formatting
+age = 30
+name = 'Simon'
+# 'My name is Simon and I am 30 years old'
+print('My name is {} and I am {} years old'.format(name, age))
+print(f'My name is {name} and I am {age} years old')  # f-string (Python 3.6+)
